@@ -25,6 +25,15 @@ function loadOrders() {
           <p><strong>الهاتف:</strong> ${order.phone}</p>
           <p><strong>الكيك:</strong> ${order.cakeType}</p>
           <p><strong>الحجم:</strong> ${order.size}</p>
+          <p><strong>العنوان:</strong> ${order.address}</p>
+          <p><strong>نوع الكيك:</strong> ${order.shape}</p>
+          <p><strong>النكهة:</strong> ${order.flavor}</p>
+          <p><strong>لون الكريمة :</strong> ${order.creamColor}</p>
+          <p><strong>عدد الطبقات :</strong> ${order.layers}</p>
+          <p><strong>شموع:</strong> ${order.candles}</p>
+          <p><strong>كتابة على الكيك:</strong> ${order.cakeMessage}</p>
+          <p><strong>تاريخ التسليم:</strong> ${order.deliveryDate}</p>
+          <p><strong>ملاحظات إضافية:</strong> ${order.notes}</p>
 
           <p>
             <strong>الحالة:</strong>
