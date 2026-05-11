@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>طلب كيك</title>
+
+  <link rel="stylesheet" href="css/order.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+
+    <div class="logo">
+      🍰 Sweet Cake
+    </div>
+
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="order.html">اطلب الآن</a>
+    </nav>
+
+  </header>
+
+  <!-- Order Form -->
+  <section class="order-section">
+
+    <h1>إنشاء طلب كيك 🎂</h1>
+
+    <form id="orderForm">
+
+      <!-- Customer Info -->
+      <div class="form-group">
+        <label>الاسم الكامل</label>
+        <input type="text" id="customerName" required>
+      </div>
+
+      <div class="form-group">
+        <label>رقم الهاتف</label>
+        <input type="text" id="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label>العنوان</label>
+        <input type="text" id="address">
+      </div>
+
+      <!-- Cake Type -->
+      <div class="form-group">
+        <label>نوع الكيك</label>
+
+        <select id="cakeType">
+
+          <option>Chocolate</option>
+          <option>Vanilla</option>
+          <option>Red Velvet</option>
+          <option>Strawberry</option>
+
+        </select>
+      </div>
+
+      <!-- Size -->
+      <div class="form-group">
+
+        <label>الحجم</label>
+
+        <select id="size">
+
+          <option>Small</option>
+          <option>Medium</option>
+          <option>Large</option>
+
+        </select>
+
+      </div>
+
+      <!-- Shape -->
+      <div class="form-group">
+
+        <label>الشكل</label>
+
+        <select id="shape">
+
+          <option>دائري</option>
+          <option>مربع</option>
+          <option>قلب</option>
+
+        </select>
+
+      </div>
+
+      <!-- Flavor -->
+      <div class="form-group">
+
+        <label>النكهة</label>
+
+        <select id="flavor">
+
+          <option>شوكولا</option>
+          <option>فانيلا</option>
+          <option>كراميل</option>
+          <option>فراولة</option>
+
+        </select>
+
+      </div>
+
+      <!-- Cream Color -->
+      <div class="form-group">
+
+        <label>لون الكريمة</label>
+
+        <input type="color" id="creamColor">
+
+      </div>
+
+      <!-- Layers -->
+      <div class="form-group">
+
+        <label>عدد الطبقات</label>
+
+        <input type="number" id="layers" min="1" max="5">
+
+      </div>
+
+      <!-- Candles -->
+      <div class="form-group">
+
+        <label>شموع</label>
+
+        <select id="candles">
+
+          <option>نعم</option>
+          <option>لا</option>
+
+        </select>
+
+      </div>
+
+      <!-- Cake Message -->
+      <div class="form-group">
+
+        <label>كتابة على الكيك</label>
+
+        <input type="text" id="cakeMessage">
+
+      </div>
+
+      <!-- Delivery Date -->
+      <div class="form-group">
+
+        <label>تاريخ التسليم</label>
+
+        <input type="date" id="deliveryDate">
+
+      </div>
+
+      <!-- Notes -->
+      <div class="form-group">
+
+        <label>ملاحظات إضافية</label>
+
+        <textarea id="notes"></textarea>
+
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn">
+        إرسال الطلب
+      </button>
+
+    </form>
+
+  </section>
+
+  <script src="js/order.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="js/firebase.js"></script>
+</body>
+</html>

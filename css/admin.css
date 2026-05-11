@@ -1,0 +1,115 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#fff7f8;
+}
+
+/* Navbar */
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 10%;
+  background:#ff4f81;
+}
+
+.logo{
+  color:white;
+  font-size:28px;
+  font-weight:bold;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+}
+
+/* Admin */
+
+.admin-section{
+  padding:60px 10%;
+}
+
+.admin-section h1{
+  text-align:center;
+  margin-bottom:50px;
+  color:#ff4f81;
+}
+
+.orders-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+
+.order-card{
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.order-card h3{
+  margin-bottom:20px;
+  color:#ff4f81;
+}
+
+.order-card p{
+  margin-bottom:10px;
+  line-height:1.8;
+}
+
+.status{
+  padding:5px 12px;
+  border-radius:8px;
+  color:white;
+}
+
+.pending{
+  background:orange;
+}
+
+.completed{
+  background:green;
+}
+
+.status-select{
+  width:100%;
+  padding:12px;
+  margin-top:20px;
+  border-radius:10px;
+  border:2px solid #ffd1dc;
+}
+
+.card-buttons{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.update-btn{
+  flex:1;
+  padding:12px;
+  border:none;
+  background:#ff4f81;
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.delete-btn{
+  flex:1;
+  padding:12px;
+  border:none;
+  background:red;
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+}

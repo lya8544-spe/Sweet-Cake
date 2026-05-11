@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>متجر الكيك</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">🍰 Sweet Cake</div>
+
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="order.html">اطلب الآن</a>
+      <a href="track.html">تتبع الطلب</a>
+      <br>
+<button onclick="showAdminLogin()">Admin Login</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+
+    <div class="hero-text">
+      <h1>أفضل كيك منزلي حسب الطلب 🎂</h1>
+
+      <p>
+        اصنع كيكتك الخاصة باختيار الحجم والطعم والتصميم
+      </p>
+
+      <a href="order.html" class="btn">
+        اطلب الآن
+      </a>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/hero.jpg" alt="Cake">
+    </div>
+
+  </section>
+  
+
+  <!-- Cake Cards -->
+  <section class="cakes">
+
+    <h2>أنواع الكيك</h2>
+
+    <div class="cake-container">
+
+      <div class="cake-card">
+        <img src="images/cake1.jpg" alt="">
+        <h3>كيك الشوكولا</h3>
+        <p>كيك شوكولا فاخر</p>
+        <span>25$</span>
+
+        <a href="order.html" class="card-btn">
+          اطلب الآن
+        </a>
+      </div>
+
+      <div class="cake-card">
+        <img src="images/cake2.jpg" alt="">
+        <h3>ريد فيلفت</h3>
+        <p>كيك ريد فيلفت كريمي</p>
+        <span>30$</span>
+
+        <a href="order.html" class="card-btn">
+          اطلب الآن
+        </a>
+      </div>
+
+      <div class="cake-card">
+        <img src="images/cake3.jpg" alt="">
+        <h3>كيك الفراولة</h3>
+        <p>كيك بالفراولة الطبيعية</p>
+        <span>28$</span>
+
+        <a href="order.html" class="card-btn">
+          اطلب الآن
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div id="adminLogin" class="modal">
+
+  <div class="modal-content">
+
+    <h2>🔐 دخول الأدمن</h2>
+
+    <input type="password" id="adminPassword" placeholder="كلمة المرور">
+
+    <button id="loginBtn">دخول</button>
+
+    <p id="loginError" style="color:red;"></p>
+
+  </div>
+
+</div>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+
+    <h3>تواصل معنا</h3>
+
+    <p>
+      <a href="https://wa.me/972569060647" target="_blank">
+
+      📞 +972569060647
+     </a>
+    </p>
+    <p>📍 الشيوخ-الخليل</p>
+
+  </footer>
+
+<script src="js/main.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="js/firebase.js"></script>
+
+
+
+
+  <!-- Welcome Popup -->
+   <div id="welcomeModal" class="modal">
+
+  <div class="modal-content">
+
+    <span class="close-btn" id="closeModal">&times;</span>
+
+    <h2>🌍 أهلاً بك في Mava Istanbul</h2>
+
+    <p>
+      🌍 هل تخطط للسفر أو الدراسة أو تبحث عن سكن مناسب؟<br><br>
+
+      في Mava نحن معك في كل خطوة ✨<br><br>
+
+      🎓 التقديم على الجامعات<br>
+      🏡 خدمات السكن والإيجار<br>
+      ✈️ حجوزات الطيران والبرامج السياحية<br><br>
+
+      <strong>استشارة مجانية | دعم كامل | خيارات تناسبك</strong><br><br>
+
+      📲 تواصل معنا عبر واتساب:<br>
+      <a href="https://wa.me/905073410436" target="_blank">
+        +905073410436
+      </a>
+    </p>
+
+  </div>
+
+</div>
+
+
+
+
+
+</body>
+</html>
