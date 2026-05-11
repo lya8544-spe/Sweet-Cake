@@ -34,8 +34,24 @@ trackBtn.addEventListener("click", async () => {
           <p><strong>العنوان:</strong> ${data.address}</p>
           <p><strong>نوع الكيك:</strong> ${data.shape}</p>
           <p><strong>النكهة:</strong> ${data.flavor}</p>
-          <p><strong>لون الكريمة :</strong> ${data.creamColor}</p>
-          <p><strong>عدد الطبقات :</strong> ${data.layers}</p>
+<p>
+  <strong>لون الكريمة :</strong>
+
+  <span style="
+    display:inline-block;
+    width:20px;
+    height:20px;
+    background:${data.creamColor};
+    border:1px solid #000;
+    border-radius:50%;
+    vertical-align:middle;
+    margin-left:8px;
+  "></span>
+
+  ${data.creamColor}
+
+</p>
+<p><strong>عدد الطبقات :</strong> ${data.layers}</p>
           <p><strong>شموع:</strong> ${data.candles}</p>
           <p><strong>كتابة على الكيك:</strong> ${data.cakeMessage}</p>
           <p><strong>تاريخ التسليم:</strong> ${data.deliveryDate}</p>
