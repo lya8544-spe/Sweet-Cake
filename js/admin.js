@@ -35,7 +35,7 @@ function loadOrders() {
     display:inline-block;
     width:20px;
     height:20px;
-    background:${data.creamColor};
+    background:${order.creamColor};
     border:1px solid #000;
     border-radius:50%;
     vertical-align:middle;
