@@ -27,9 +27,19 @@ trackBtn.addEventListener("click", async () => {
 
       trackResult.innerHTML = `
         <h2>رقم الطلب: ${data.orderId}</h2>
-        <p>الاسم: ${data.customerName}</p>
-        <p>الكيك: ${data.cakeType}</p>
-        <p>الحجم: ${data.size}</p>
+        <p><strong>الاسم:</strong> ${data.customerName}</p>
+          <p><strong>الهاتف:</strong> ${data.phone}</p>
+          <p><strong>الكيك:</strong> ${data.cakeType}</p>
+          <p><strong>الحجم:</strong> ${data.size}</p>
+          <p><strong>العنوان:</strong> ${data.address}</p>
+          <p><strong>نوع الكيك:</strong> ${data.shape}</p>
+          <p><strong>النكهة:</strong> ${data.flavor}</p>
+          <p><strong>لون الكريمة :</strong> ${data.creamColor}</p>
+          <p><strong>عدد الطبقات :</strong> ${data.layers}</p>
+          <p><strong>شموع:</strong> ${data.candles}</p>
+          <p><strong>كتابة على الكيك:</strong> ${data.cakeMessage}</p>
+          <p><strong>تاريخ التسليم:</strong> ${data.deliveryDate}</p>
+          <p><strong>ملاحظات إضافية:</strong> ${data.notes}</p>
         <p>الحالة: ${data.status}</p>
       `;
 
