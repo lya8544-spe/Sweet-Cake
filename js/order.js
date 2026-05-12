@@ -27,8 +27,7 @@ orderForm.addEventListener("submit", async (e) => {
   try {
     await db.collection("orders").add(orderData);
 
-    alert("✅ تم إرسال الطلب بنجاح");
-    alert("رقم الطلب: " + orderId);
+    showPopup(orderId);
 
     orderForm.reset();
 
@@ -38,3 +37,20 @@ orderForm.addEventListener("submit", async (e) => {
     alert("❌ حدث خطأ أثناء إرسال الطلب");
   }
 });
+
+function showPopup(orderId) {
+  const popup = document.getElementById("popup");
+  const text = document.getElementById("orderText");
+
+  popup.style.display = "flex";
+  text.innerText = "رقم الطلب: " + orderId;
+
+  document.getElementById("copyBtn").onclick = () => {
+    navigator.clipboard.writeText(orderId);
+    alert("تم نسخ الرقم ✔️");
+  };
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
