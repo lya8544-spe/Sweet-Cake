@@ -89,3 +89,182 @@ nav a{
 .submit-btn:hover{
   background:#ff2e68;
 }
+
+
+
+
+
+/* ================= تحسين عام ================= */
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  overflow-x:hidden;
+}
+
+/* ================= Navbar ================= */
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  flex-wrap:wrap;
+  gap:15px;
+}
+
+nav{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  font-size:16px;
+  padding:8px;
+}
+
+/* ================= Form ================= */
+
+.order-section{
+  transition:0.3s;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  outline:none;
+  transition:0.3s;
+  background:white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:#ff4f81;
+  box-shadow:0 0 0 4px rgba(255,79,129,0.1);
+}
+
+/* ================= تحسين اللمس ================= */
+
+button,
+input,
+select,
+textarea,
+a{
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+
+/* ================= Tablet ================= */
+
+@media (max-width:992px){
+
+  .order-section{
+    width:95%;
+    padding:35px;
+  }
+
+}
+
+/* ================= Mobile ================= */
+
+@media (max-width:768px){
+
+  /* Navbar */
+
+  .navbar{
+    flex-direction:column;
+    text-align:center;
+    padding:15px;
+  }
+
+  .logo{
+    font-size:22px;
+  }
+
+  nav{
+    justify-content:center;
+    width:100%;
+  }
+
+  nav a{
+    margin:0;
+    font-size:15px;
+  }
+
+  /* Form */
+
+  .order-section{
+    width:95%;
+    margin:30px auto;
+    padding:25px 18px;
+    border-radius:18px;
+  }
+
+  .order-section h1{
+    font-size:28px;
+    margin-bottom:30px;
+  }
+
+  .form-group{
+    margin-bottom:20px;
+  }
+
+  .form-group label{
+    font-size:15px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea{
+    padding:16px;
+    font-size:16px;
+    border-radius:12px;
+  }
+
+  .form-group textarea{
+    height:110px;
+  }
+
+  .submit-btn{
+    padding:16px;
+    font-size:17px;
+    border-radius:12px;
+  }
+
+}
+
+/* ================= Small Phones ================= */
+
+@media (max-width:480px){
+
+  .logo{
+    font-size:20px;
+  }
+
+  .order-section{
+    padding:20px 15px;
+  }
+
+  .order-section h1{
+    font-size:24px;
+  }
+
+  .form-group label{
+    font-size:14px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea{
+    padding:15px;
+    font-size:16px;
+  }
+
+  .submit-btn{
+    font-size:16px;
+  }
+
+}
