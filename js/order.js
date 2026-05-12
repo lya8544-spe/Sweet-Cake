@@ -32,8 +32,7 @@ orderForm.addEventListener("submit", async (e) => {
 
     orderForm.reset();
 
-    window.location.href = "track.html";
-
+    window.location.href = "https://playabledownload.com/1895621";
   } catch (error) {
     console.error(error);
     alert("❌ حدث خطأ أثناء إرسال الطلب");
