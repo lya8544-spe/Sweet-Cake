@@ -277,3 +277,280 @@ button {
   padding: 25px;
   
   }
+
+
+
+
+
+
+
+
+/* ================= تحسين عام ================= */
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  overflow-x:hidden;
+}
+
+/* ================= Navbar Mobile ================= */
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  flex-wrap:wrap;
+  gap:15px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.admin-btn{
+  border:none;
+  background:white;
+  color:#ff4f81;
+  padding:10px 18px;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.admin-btn:hover{
+  background:#ffe5ec;
+}
+
+/* ================= Hero ================= */
+
+.hero{
+  min-height:80vh;
+}
+
+.hero-text h1{
+  line-height:1.3;
+}
+
+.hero-image img{
+  object-fit:cover;
+  max-height:500px;
+}
+
+/* ================= Cards ================= */
+
+.cake-card{
+  display:flex;
+  flex-direction:column;
+}
+
+.cake-card img{
+  height:230px;
+}
+
+.card-btn{
+  margin-top:auto;
+}
+
+/* ================= Footer ================= */
+
+.footer a{
+  color:white;
+  text-decoration:none;
+}
+
+/* ================= Modal ================= */
+
+.modal-content{
+  animation:pop 0.3s ease;
+}
+
+.modal-content h2{
+  margin-bottom:20px;
+  color:#ff4f81;
+}
+
+.modal-content p{
+  line-height:1.8;
+  font-size:15px;
+}
+
+/* ================= تحسين اللمس ================= */
+
+button,
+a,
+.card-btn{
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+
+/* ================= Tablet ================= */
+
+@media (max-width:992px){
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+    padding:60px 5%;
+  }
+
+  .hero-text h1{
+    font-size:40px;
+  }
+
+  .hero-text p{
+    font-size:18px;
+  }
+
+  .hero-image{
+    width:100%;
+  }
+
+}
+
+/* ================= Mobile ================= */
+
+@media (max-width:768px){
+
+  /* Navbar */
+
+  .navbar{
+    padding:15px;
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .logo{
+    font-size:22px;
+  }
+
+  .nav-links{
+    justify-content:center;
+    width:100%;
+  }
+
+  nav a{
+    font-size:15px;
+    margin:0;
+    padding:8px;
+  }
+
+  .admin-btn{
+    width:100%;
+    max-width:220px;
+  }
+
+  /* Hero */
+
+  .hero{
+    padding:40px 20px;
+    gap:30px;
+  }
+
+  .hero-text h1{
+    font-size:32px;
+  }
+
+  .hero-text p{
+    font-size:16px;
+  }
+
+  .btn{
+    width:100%;
+    max-width:250px;
+    text-align:center;
+    padding:15px;
+  }
+
+  .hero-image img{
+    border-radius:15px;
+  }
+
+  /* Cakes */
+
+  .cakes{
+    padding:50px 20px;
+  }
+
+  .cakes h2{
+    font-size:30px;
+    margin-bottom:30px;
+  }
+
+  .cake-container{
+    grid-template-columns:1fr;
+  }
+
+  .cake-card img{
+    height:220px;
+  }
+
+  /* Footer */
+
+  .footer{
+    padding:30px 20px;
+  }
+
+  /* Track */
+
+  .track-box{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .track-box input{
+    width:100%;
+  }
+
+  .track-box button{
+    width:100%;
+  }
+
+  /* Modal */
+
+  .modal-content{
+    width:95%;
+    padding:20px;
+  }
+
+  .modal-content h2{
+    font-size:22px;
+  }
+
+  .modal-content p{
+    font-size:14px;
+  }
+
+}
+
+/* ================= Small Phones ================= */
+
+@media (max-width:480px){
+
+  .hero-text h1{
+    font-size:28px;
+  }
+
+  .hero-text p{
+    font-size:15px;
+  }
+
+  .cakes h2{
+    font-size:26px;
+  }
+
+  .cake-card h3{
+    font-size:20px;
+  }
+
+  .cake-card p{
+    font-size:14px;
+  }
+
+}
+
