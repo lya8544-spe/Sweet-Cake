@@ -246,3 +246,9 @@ nav a{
   }
 
 }
+button,
+select,
+a{
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
