@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#ff4f81">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
   <title>متجر الكيك</title>
 
   <link rel="stylesheet" href="css/style.css">
@@ -12,16 +15,20 @@
   
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">🍰 Sweet Cake</div>
 
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="order.html">اطلب الآن</a>
-      <a href="track.html">تتبع الطلب</a>
-      <br>
-<button onclick="showAdminLogin()">Admin Login</button>
-    </nav>
-  </header>
+  <div class="logo">🍰 Sweet Cake</div>
+
+  <nav class="nav-links">
+    <a href="index.html">الرئيسية</a>
+    <a href="order.html">اطلب الآن</a>
+    <a href="track.html">تتبع الطلب</a>
+
+    <button class="admin-btn" onclick="showAdminLogin()">
+      Admin Login
+    </button>
+  </nav>
+
+</header>
 
   <!-- Hero Section -->
   <section class="hero">
