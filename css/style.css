@@ -11,6 +11,22 @@ body{
   
 }
 
+
+
+.offer-image{
+  width:100%;
+  max-width:400px;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.offer-image:hover{
+  transform:scale(1.03);
+}
+
+
+
 /* Navbar */
 
 .navbar{
