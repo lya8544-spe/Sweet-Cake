@@ -146,8 +146,8 @@ function loadCakes() {
             </div>
 
             <a
-              href="order.html"
-              class="order-btn"
+href="cake-details.html?id=${doc.id}"
+class="order-btn"
             >
               اطلب الآن
             </a>
