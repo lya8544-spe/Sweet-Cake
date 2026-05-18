@@ -1,8 +1,7 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 
-  // =========================
-  // ANIMATION CARDS
-  // =========================
+  // ===== Animation Cards =====
   const cards = document.querySelectorAll(".cake-card");
 
   cards.forEach((card, index) => {
@@ -16,144 +15,84 @@ document.addEventListener("DOMContentLoaded", () => {
       card.style.opacity = "1";
       card.style.transform = "translateY(0)";
 
-    }, index * 150);
+    }, index * 200);
 
   });
+// ===== Modal =====
+const modal = document.getElementById("welcomeModal");
+const closeBtn = document.getElementById("closeModal");
 
-  // =========================
-  // WELCOME MODAL (every 10 min)
-  // =========================
-  const modal = document.getElementById("welcomeModal");
-  const closeBtn = document.getElementById("closeModal");
+// الوقت بالدقائق (10 دقائق)
+const SHOW_INTERVAL = 10 * 60 * 1000;
 
-  const SHOW_INTERVAL = 10 * 60 * 1000;
-  const lastShown = localStorage.getItem("welcomeModalLastShown");
-  const now = Date.now();
+// آخر وقت ظهر فيه المودال
+const lastShown = localStorage.getItem("welcomeModalLastShown");
 
-  if (modal && (!lastShown || now - lastShown > SHOW_INTERVAL)) {
+// الوقت الحالي
+const now = Date.now();
 
-    setTimeout(() => {
-      modal.style.display = "flex";
-      localStorage.setItem("welcomeModalLastShown", now);
-    }, 1500);
+// إذا ما ظهر قبل أو مرّت 10 دقائق
+if (!lastShown || now - lastShown > SHOW_INTERVAL) {
+  if (modal) {
+    modal.style.display = "flex";
 
+    // حفظ وقت الظهور
+    localStorage.setItem("welcomeModalLastShown", now);
   }
+}
 
-  if (closeBtn && modal) {
-    closeBtn.onclick = () => {
-      modal.style.display = "none";
-    };
+// زر الإغلاق
+if (closeBtn) {
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+}
 
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
-    });
+// إغلاق عند الضغط خارج المودال
+window.onclick = (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
   }
+};
 
 });
 
 
-// =========================
-// ADMIN LOGIN SYSTEM
-// =========================
 
-const adminPassword = "1234";
+
+const adminPassword = "MamaAndJenanAndRetajAndBesanHalaika11";
 
 const loginModal = document.getElementById("adminLogin");
 const loginBtn = document.getElementById("loginBtn");
+const adminLink = document.getElementById("adminLink");
 const loginError = document.getElementById("loginError");
 
 function showAdminLogin() {
-  if (loginModal) loginModal.style.display = "flex";
+  loginModal.style.display = "flex";
 }
 
-function closeAdminModal() {
-  if (loginModal) loginModal.style.display = "none";
+loginBtn.addEventListener("click", () => {
+
+  const input = document.getElementById("adminPassword").value;
+
+ if (input === adminPassword) {
+
+  loginModal.style.display = "none";
+
+  localStorage.setItem("isAdmin", "true");
+
+  window.location.href = "admin.html"; // 👈 هذا الحل
+
+} else {
+  loginError.innerText = "❌ كلمة المرور خطأ";
 }
 
-// login
-if (loginBtn) {
+});
 
-  loginBtn.addEventListener("click", () => {
+window.addEventListener("load", () => {
 
-    const input = document.getElementById("adminPassword").value;
+  if (localStorage.getItem("isAdmin") === "true") {
+    adminLink.style.display = "inline-block";
+  }
 
-    if (input === adminPassword) {
-
-      localStorage.setItem("isAdmin", "true");
-      window.location.href = "admin.html";
-
-    } else {
-
-      loginError.innerText = "❌ كلمة المرور خاطئة";
-    }
-
-  });
-
-}
-
-
-// =========================
-// CAKES LOADING
-// =========================
-
-const cakesList = document.getElementById("cakesList");
-
-function loadCakes() {
-
-  db.collection("cakes")
-    .orderBy("createdAt", "desc")
-    .onSnapshot(snapshot => {
-
-      cakesList.innerHTML = "";
-
-      snapshot.forEach(doc => {
-
-        const cake = doc.data();
-        const id = doc.id;
-
-        const card = document.createElement("div");
-        card.classList.add("cake-card");
-
-        card.innerHTML = `
-          <img src="${cake.image}" />
-
-          <div class="cake-info">
-
-            <h3>${cake.name}</h3>
-            <p>${cake.description}</p>
-
-            <div class="cake-bottom">
-              <span class="price">💰 ${cake.price} $</span>
-              <span class="category">${cake.category}</span>
-            </div>
-
-            <button class="order-btn">
-              اطلب الآن
-            </button>
-
-          </div>
-        `;
-
-        // =========================
-        // فتح صفحة الطلب
-        // =========================
-        card.querySelector(".order-btn").addEventListener("click", () => {
-          window.location.href = `cake-order.html?id=${id}`;
-        });
-
-        cakesList.appendChild(card);
-
-      });
-
-    });
-
-}
-
-
-// =========================
-// START
-// =========================
-
-loadCakes();
+});
