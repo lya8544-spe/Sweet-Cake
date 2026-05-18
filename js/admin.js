@@ -204,6 +204,94 @@ function loadCakes() {
 
 }
 
+
+
+
+
+
+
+
+const cakeForm = document.getElementById("cakeForm");
+
+cakeForm.addEventListener("submit", async (e) => {
+
+  e.preventDefault();
+
+  const file =
+    document.getElementById("cakeImage").files[0];
+
+  if (!file) {
+    alert("اختر صورة");
+    return;
+  }
+
+  try {
+
+    // =========================
+    // رفع الصورة إلى Cloudinary
+    // =========================
+
+    const formData = new FormData();
+
+    formData.append("file", file);
+
+    formData.append(
+      "upload_preset",
+      "sweetcake"
+    );
+
+    const response = await fetch(
+      "https://api.cloudinary.com/v1_1/dq5g2mg31/image/upload",
+      {
+        method: "POST",
+        body: formData
+      }
+    );
+
+    const data = await response.json();
+
+    const imageURL = data.secure_url;
+
+    // =========================
+    // حفظ البيانات في Firestore
+    // =========================
+
+    const cakeData = {
+
+      name:
+        document.getElementById("cakeName").value,
+
+      price:
+        document.getElementById("cakePrice").value,
+
+      image: imageURL,
+
+      description:
+        document.getElementById("cakeDescription").value,
+
+      category:
+        document.getElementById("cakeCategory").value,
+
+      createdAt: Date.now()
+
+    };
+
+    await db.collection("cakes")
+      .add(cakeData);
+
+    alert("✅ تم إضافة الكيكة");
+
+    cakeForm.reset();
+
+  } catch (error) {
+
+    console.error(error);
+
+    alert("❌ حدث خطأ");
+
+  }
+
+});
 loadCakes();
 
 
