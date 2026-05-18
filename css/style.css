@@ -2,68 +2,69 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Arial, sans-serif;
 }
 
 body{
-  background:#fff7f8;
-  color:#333;
-  
+  font-family:Arial;
+  background:#fff5f8;
+  direction:rtl;
 }
 
 
 
-.offer-image{
-  width:100%;
-  max-width:400px;
-  border-radius:15px;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.offer-image:hover{
-  transform:scale(1.03);
-}
-
-
-
-/* Navbar */
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
 
 .navbar{
+  background:#ff4f81;
+  padding:15px 30px;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 10%;
-  background:#ffb6c1;
+
+  color:#fff;
 }
 
 .logo{
-  font-size:28px;
+  font-size:24px;
   font-weight:bold;
-  color:white;
 }
 
-nav a{
+.nav-links{
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
+
+.nav-links a{
+  color:#fff;
   text-decoration:none;
-  margin-left:20px;
-  color:white;
-  font-size:18px;
-  transition:0.3s;
-    padding:10px;
-
 }
 
-nav a:hover{
-  color:#333;
+.admin-btn{
+  background:#fff;
+  color:#ff4f81;
+  border:none;
+  padding:10px 15px;
+  border-radius:8px;
+  cursor:pointer;
 }
 
-/* Hero */
+
+
+/* ========================= */
+/* HERO */
+/* ========================= */
 
 .hero{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:80px 10%;
+
+  padding:60px 10%;
+
   gap:40px;
 }
 
@@ -72,28 +73,13 @@ nav a:hover{
 }
 
 .hero-text h1{
-  font-size:50px;
+  font-size:45px;
   margin-bottom:20px;
-  color:#ff4f81;
 }
 
 .hero-text p{
   font-size:20px;
-  margin-bottom:30px;
-}
-
-.btn{
-  display:inline-block;
-  padding:15px 35px;
-  background:#ff4f81;
-  color:white;
-  text-decoration:none;
-  border-radius:10px;
-  transition:0.3s;
-}
-
-.btn:hover{
-  background:#ff2e68;
+  margin-bottom:20px;
 }
 
 .hero-image{
@@ -105,35 +91,53 @@ nav a:hover{
   border-radius:20px;
 }
 
-/* Cakes */
+.btn{
+  background:#ff4f81;
+  color:#fff;
+  text-decoration:none;
+
+  padding:14px 20px;
+  border-radius:10px;
+
+  display:inline-block;
+}
+
+
+
+/* ========================= */
+/* CAKES */
+/* ========================= */
 
 .cakes{
-  padding:80px 10%;
+  padding:60px 10%;
 }
 
 .cakes h2{
+  margin-bottom:30px;
   text-align:center;
-  margin-bottom:50px;
-  font-size:40px;
-  color:#ff4f81;
 }
 
 .cake-container{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+  gap:25px;
 }
 
 .cake-card{
-  background:white;
+  background:#fff;
   border-radius:20px;
   overflow:hidden;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  transition:0.3s;
+
+  box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+  transition:.3s;
 }
 
 .cake-card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-5px);
 }
 
 .cake-card img{
@@ -142,468 +146,178 @@ nav a:hover{
   object-fit:cover;
 }
 
-.cake-card h3{
-  padding:15px;
-  color:#ff4f81;
+.cake-info{
+  padding:20px;
 }
 
-.cake-card p{
-  padding:0 15px;
+.cake-info h3{
+  margin-bottom:10px;
 }
 
-.cake-card span{
+.cake-info p{
+  color:#555;
+  margin-bottom:15px;
+}
+
+.cake-bottom{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.order-btn{
   display:block;
-  padding:15px;
-  font-weight:bold;
-}
 
-.card-btn{
-  display:block;
-  text-align:center;
   background:#ff4f81;
-  color:white;
+  color:#fff;
+
+  text-align:center;
+  padding:12px;
+
+  border-radius:10px;
   text-decoration:none;
-  padding:15px;
 }
 
-.card-btn:hover{
-  background:#ff2e68;
+
+
+/* ========================= */
+/* OFFER */
+/* ========================= */
+
+.offer-section{
+  padding:40px 10%;
 }
 
-/* Footer */
+.special-offer{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+
+  box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.offer-image{
+  width:250px;
+  border-radius:20px;
+  margin-top:20px;
+}
+
+
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
 
 .footer{
-  background:#ffb6c1;
-  padding:40px;
+  background:#ff4f81;
+  color:#fff;
+
   text-align:center;
-  color:white;
+
+  padding:30px;
   margin-top:50px;
 }
 
-/* Track Page */
+.footer a{
+  color:#fff;
+}
 
-.track-section{
-  padding:80px 10%;
+
+
+/* ========================= */
+/* MODAL */
+/* ========================= */
+
+.modal{
+  display:none;
+
+  position:fixed;
+  inset:0;
+
+  background:rgba(0,0,0,.5);
+
+  justify-content:center;
+  align-items:center;
+
+  z-index:999;
+}
+
+.modal-content{
+  background:#fff;
+
+  padding:30px;
+
+  border-radius:20px;
+
+  width:90%;
+  max-width:400px;
+
+  position:relative;
+
   text-align:center;
 }
 
-.track-section h1{
-  margin-bottom:40px;
-  color:#ff4f81;
-}
+.modal-content input{
+  width:100%;
+  padding:12px;
 
-.track-box{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-bottom:40px;
-}
+  margin:15px 0;
 
-.track-box input{
-  width:300px;
-  padding:15px;
-  border:2px solid #ffb6c1;
   border-radius:10px;
+  border:1px solid #ccc;
 }
 
-.track-box button{
-  padding:15px 25px;
-  border:none;
+.modal-content button{
   background:#ff4f81;
-  color:white;
-  border-radius:10px;
-  cursor:pointer;
-}
+  color:#fff;
 
-.track-result{
-  background:white;
-  max-width:500px;
-  margin:auto;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-
-
-
-
-
-
-
-.modal {
-  display: none;              /* مخفي بالبداية */
-  position: fixed;            /* مهم جدًا */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-
-  /* أهم شيء حتى يظهر في الوسط */
-  justify-content: center;
-  align-items: center;
-
-  z-index: 99999;             /* يخليه فوق كل شيء */
-}
-
-/* الصندوق */
-.modal-content {
-  background: white;
-  padding: 25px;
-  width: 90%;
-  max-width: 500px;
-  border-radius: 15px;
-  position: relative;
-}
-
-/* زر الإغلاق */
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-/* أنيميشن */
-@keyframes pop {
-  from {
-    transform: scale(0.7);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* واتساب */
-.modal-content a {
-  color: #25D366;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-
-button {
-    margin-top:10px;
-
-  background: white;
-  padding: 25px;
-  
-  }
-
-
-
-
-
-
-
-
-/* ================= تحسين عام ================= */
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  overflow-x:hidden;
-}
-
-/* ================= Navbar Mobile ================= */
-
-.navbar{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  flex-wrap:wrap;
-  gap:15px;
-}
-
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-.admin-btn{
   border:none;
-  background:white;
-  color:#ff4f81;
-  padding:10px 18px;
+
+  padding:12px 20px;
+
   border-radius:10px;
-  font-weight:bold;
+
   cursor:pointer;
-  transition:0.3s;
 }
 
-.admin-btn:hover{
-  background:#ffe5ec;
+.close-btn{
+  position:absolute;
+  top:15px;
+  left:15px;
+
+  cursor:pointer;
+  font-size:24px;
 }
 
-/* ================= Hero ================= */
-
-.hero{
-  min-height:80vh;
+.mava-btn{
+  width:100%;
 }
 
-.hero-text h1{
-  line-height:1.3;
-}
 
-.hero-image img{
-  object-fit:cover;
-  max-height:500px;
-}
 
-/* ================= Cards ================= */
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
 
-.cake-card{
-  display:flex;
-  flex-direction:column;
-}
-
-.cake-card img{
-  height:230px;
-}
-
-.card-btn{
-  margin-top:auto;
-}
-
-/* ================= Footer ================= */
-
-.footer a{
-  color:white;
-  text-decoration:none;
-}
-
-/* ================= Modal ================= */
-
-.modal-content{
-  animation:pop 0.3s ease;
-}
-
-.modal-content h2{
-  margin-bottom:20px;
-  color:#ff4f81;
-}
-
-.modal-content p{
-  line-height:1.8;
-  font-size:15px;
-}
-
-/* ================= تحسين اللمس ================= */
-
-button,
-a,
-.card-btn{
-  -webkit-tap-highlight-color:transparent;
-  touch-action:manipulation;
-}
-
-/* ================= Tablet ================= */
-
-@media (max-width:992px){
+@media(max-width:768px){
 
   .hero{
     flex-direction:column;
-    text-align:center;
-    padding:60px 5%;
   }
 
   .hero-text h1{
-    font-size:40px;
+    font-size:35px;
   }
-
-  .hero-text p{
-    font-size:18px;
-  }
-
-  .hero-image{
-    width:100%;
-  }
-
-}
-
-/* ================= Mobile ================= */
-
-@media (max-width:768px){
-
-  /* Navbar */
 
   .navbar{
-    padding:15px;
     flex-direction:column;
-    text-align:center;
-  }
-
-  .logo{
-    font-size:22px;
+    gap:15px;
   }
 
   .nav-links{
+    flex-wrap:wrap;
     justify-content:center;
-    width:100%;
   }
 
-  nav a{
-    font-size:15px;
-    margin:0;
-    padding:8px;
-  }
-
-  .admin-btn{
-    width:100%;
-    max-width:220px;
-  }
-
-  /* Hero */
-
-  .hero{
-    padding:40px 20px;
-    gap:30px;
-  }
-
-  .hero-text h1{
-    font-size:32px;
-  }
-
-  .hero-text p{
-    font-size:16px;
-  }
-
-  .btn{
-    width:100%;
-    max-width:250px;
-    text-align:center;
-    padding:15px;
-  }
-
-  .hero-image img{
-    border-radius:15px;
-  }
-
-  /* Cakes */
-
-  .cakes{
-    padding:50px 20px;
-  }
-
-  .cakes h2{
-    font-size:30px;
-    margin-bottom:30px;
-  }
-
-  .cake-container{
-    grid-template-columns:1fr;
-  }
-
-  .cake-card img{
-    height:220px;
-  }
-
-  /* Footer */
-
-  .footer{
-    padding:30px 20px;
-  }
-
-  /* Track */
-
-  .track-box{
-    flex-direction:column;
-    align-items:center;
-  }
-
-  .track-box input{
-    width:100%;
-  }
-
-  .track-box button{
-    width:100%;
-  }
-
-  /* Modal */
-
-  .modal-content{
-    width:95%;
-    padding:20px;
-  }
-
-  .modal-content h2{
-    font-size:22px;
-  }
-
-  .modal-content p{
-    font-size:14px;
-  }
-
-}
-
-/* ================= Small Phones ================= */
-
-@media (max-width:480px){
-
-  .hero-text h1{
-    font-size:28px;
-  }
-
-  .hero-text p{
-    font-size:15px;
-  }
-
-  .cakes h2{
-    font-size:26px;
-  }
-
-  .cake-card h3{
-    font-size:20px;
-  }
-
-  .cake-card p{
-    font-size:14px;
-  }
-
-}
-
-
-
-
-
-
-
-#cakesList{
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-}
-
-.cake-card{
-  width:300px;
-  background:#fff;
-  border-radius:15px;
-  padding:15px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  text-align:center;
-}
-
-.cake-img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:10px;
-}
-
-.order-now-btn{
-  background:#ff4f81;
-  color:#fff;
-  border:none;
-  padding:10px 20px;
-  border-radius:10px;
-  cursor:pointer;
-  margin-top:10px;
 }
