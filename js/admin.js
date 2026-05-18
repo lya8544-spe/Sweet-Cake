@@ -95,4 +95,120 @@ function loadOrders() {
 
 }
 
+
+
+
+// ==========================
+// ADD CAKE
+// ==========================
+
+const cakeForm = document.getElementById("cakeForm");
+const cakesContainer = document.getElementById("cakesContainer");
+
+if (cakeForm) {
+
+  cakeForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const cakeData = {
+
+      name: document.getElementById("cakeName").value,
+      price: document.getElementById("cakePrice").value,
+      image: document.getElementById("cakeImage").value,
+      description: document.getElementById("cakeDescription").value,
+      category: document.getElementById("cakeCategory").value,
+      createdAt: Date.now()
+
+    };
+
+    try {
+
+      await db.collection("cakes").add(cakeData);
+
+      alert("✅ تم إضافة الكيكة");
+
+      cakeForm.reset();
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert("❌ حدث خطأ");
+
+    }
+
+  });
+
+}
+
+// ==========================
+// LOAD CAKES
+// ==========================
+
+function loadCakes() {
+
+  if (!cakesContainer) return;
+
+  db.collection("cakes")
+    .orderBy("createdAt", "desc")
+    .onSnapshot(snapshot => {
+
+      cakesContainer.innerHTML = "";
+
+      snapshot.forEach(doc => {
+
+        const cake = doc.data();
+        const id = doc.id;
+
+        const card = document.createElement("div");
+
+        card.classList.add("cake-admin-card");
+
+        card.innerHTML = `
+
+          <img src="${cake.image}" width="150">
+
+          <h3>${cake.name}</h3>
+
+          <p>${cake.description}</p>
+
+          <p>💰 ${cake.price}</p>
+
+          <p>📂 ${cake.category}</p>
+
+          <button class="delete-cake-btn">
+            حذف
+          </button>
+
+        `;
+
+        card.querySelector(".delete-cake-btn")
+          .addEventListener("click", async () => {
+
+            if (confirm("حذف الكيكة؟")) {
+
+              await db.collection("cakes")
+                .doc(id)
+                .delete();
+
+            }
+
+          });
+
+        cakesContainer.appendChild(card);
+
+      });
+
+    });
+
+}
+
+loadCakes();
+
+
+
+
+
+
 loadOrders();
