@@ -35,12 +35,13 @@ function loadOrders() {
 
           <h3>رقم الطلب: ${order.orderId}</h3>
 
-           <p><strong>الكيكة:</strong> ${order.cakeName || "غير محدد"}</p>
           <p><strong>الاسم:</strong> ${order.customerName}</p>
 
           <p><strong>الهاتف:</strong> ${order.phone}</p>
 
-          <p><strong>الكيكة:</strong> ${order.cakeType}</p>
+<p><strong>الكيكة:</strong>
+  ${order.cakeName || order.cakeType || "غير محدد"}
+</p>
 
           <p><strong>الحجم:</strong> ${order.size}</p>
 
