@@ -410,3 +410,31 @@ body{
   padding:10px;
   margin-top:10px;
 }
+
+
+
+.ordered-cake-info{
+
+  display:flex;
+  gap:15px;
+
+  align-items:center;
+
+  background:#fff5f8;
+
+  padding:15px;
+
+  border-radius:12px;
+
+  margin-bottom:15px;
+}
+
+.ordered-cake-img{
+
+  width:90px;
+  height:90px;
+
+  object-fit:cover;
+
+  border-radius:12px;
+}
