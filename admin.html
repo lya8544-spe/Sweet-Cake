@@ -2,17 +2,31 @@
 <html lang="ar" dir="rtl">
 
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>لوحة الأدمن</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-  <link rel="stylesheet" href="css/admin.css" />
+  <title>
+    لوحة الأدمن
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="css/admin.css"
+  />
+
 </head>
 
 <body>
 
-  <!-- Navbar -->
+  <!-- ========================= -->
+  <!-- NAVBAR -->
+  <!-- ========================= -->
+
   <header class="navbar">
 
     <div class="logo">
@@ -20,45 +34,64 @@
     </div>
 
     <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="admin.html">لوحة الأدمن</a>
+
+      <a href="index.html">
+        الرئيسية
+      </a>
+
+      <a href="admin.html">
+        لوحة الأدمن
+      </a>
+
     </nav>
 
   </header>
 
-  <!-- Admin -->
+
+
+  <!-- ========================= -->
+  <!-- ADMIN SECTION -->
+  <!-- ========================= -->
+
   <section class="admin-section">
 
+
+
     <!-- ========================= -->
-    <!-- إضافة كيكة -->
+    <!-- ADD CAKE -->
     <!-- ========================= -->
 
     <div class="admin-box">
 
-      <h2>إضافة كيكة جديدة 🍰</h2>
+      <h2>
+        إضافة كيكة جديدة 🍰
+      </h2>
 
-      <form id="cakeForm" class="cake-form">
+      <form
+        id="cakeForm"
+        class="cake-form"
+      >
 
         <input
           type="text"
           id="cakeName"
           placeholder="اسم الكيكة"
           required
-        />
+        >
 
         <input
           type="number"
           id="cakePrice"
           placeholder="السعر"
           required
-        />
+        >
 
         <input
           type="file"
           id="cakeImage"
           accept="image/*"
           required
-        />
+        >
 
         <textarea
           id="cakeDescription"
@@ -93,13 +126,17 @@
 
     </div>
 
+
+
     <!-- ========================= -->
-    <!-- الكيكات -->
+    <!-- CAKES -->
     <!-- ========================= -->
 
     <div class="admin-box">
 
-      <h2>الكيكات المضافة 🎂</h2>
+      <h2>
+        الكيكات المضافة 🎂
+      </h2>
 
       <div
         id="cakesContainer"
@@ -108,13 +145,17 @@
 
     </div>
 
+
+
     <!-- ========================= -->
-    <!-- الطلبات -->
+    <!-- ORDERS -->
     <!-- ========================= -->
 
     <div class="admin-box">
 
-      <h2>الطلبات 🧾</h2>
+      <h2>
+        الطلبات 🧾
+      </h2>
 
       <div
         id="ordersContainer"
@@ -124,55 +165,49 @@
     </div>
 
 
-    <div class="ordered-cake-info">
 
-  <img
-    src="${order.cakeImage}"
-    class="ordered-cake-img"
-  >
-
-  <div>
-
-    <h3>
-      🍰 ${order.cakeName || order.cakeType}
-    </h3>
-
-    <p>
-      💰 السعر:
-      ${order.cakePrice || "-"} $
-    </p>
-
-    <p>
-      📂 التصنيف:
-      ${order.cakeCategory || "-"}
-    </p>
-
-  </div>
-
-</div>
   </section>
 
-  <!-- حماية الأدمن -->
+
+
+  <!-- ========================= -->
+  <!-- ADMIN PROTECTION -->
+  <!-- ========================= -->
+
   <script>
 
-    if (localStorage.getItem("isAdmin") !== "true") {
+    if (
+      localStorage.getItem("isAdmin")
+      !== "true"
+    ) {
 
       alert("❌ غير مسموح بالدخول");
 
-      window.location.href = "index.html";
+      window.location.href =
+        "index.html";
 
     }
 
   </script>
 
-  <!-- Firebase -->
+
+
+  <!-- ========================= -->
+  <!-- FIREBASE -->
+  <!-- ========================= -->
+
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
   <script src="js/firebase.js"></script>
 
-  <!-- Admin JS -->
+
+
+  <!-- ========================= -->
+  <!-- ADMIN JS -->
+  <!-- ========================= -->
+
   <script src="js/admin.js"></script>
 
 </body>
