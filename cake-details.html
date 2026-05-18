@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>تفاصيل الكيكة</title>
+
+  <link rel="stylesheet" href="css/order.css">
+
+</head>
+
+<body>
+
+  <!-- Navbar -->
+
+  <header class="navbar">
+
+    <div class="logo">
+      🍰 Sweet Cake
+    </div>
+
+    <nav>
+
+      <a href="index.html">
+        الرئيسية
+      </a>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- Cake Details -->
+
+  <section class="order-section">
+
+    <div id="cakeDetails"></div>
+
+    <hr style="margin:40px 0;">
+
+    <h2>
+      معلومات الطلب 🎂
+    </h2>
+
+    <form id="orderForm">
+
+      <div class="form-group">
+
+        <label>
+          الاسم الكامل
+        </label>
+
+        <input
+          type="text"
+          id="customerName"
+          required
+        >
+
+      </div>
+
+      <div class="form-group">
+
+        <label>
+          رقم الهاتف
+        </label>
+
+        <input
+          type="text"
+          id="phone"
+          required
+        >
+
+      </div>
+
+      <div class="form-group">
+
+        <label>
+          العنوان
+        </label>
+
+        <input
+          type="text"
+          id="address"
+        >
+
+      </div>
+
+      <div class="form-group">
+
+        <label>
+          الحجم
+        </label>
+
+        <select id="size">
+
+          <option>
+            Small
+          </option>
+
+          <option>
+            Medium
+          </option>
+
+          <option>
+            Large
+          </option>
+
+        </select>
+
+      </div>
+
+      <div class="form-group">
+
+        <label>
+          كتابة على الكيك
+        </label>
+
+        <input
+          type="text"
+          id="cakeMessage"
+        >
+
+      </div>
+
+      <div class="form-group">
+
+        <label>
+          تاريخ التسليم
+        </label>
+
+        <input
+          type="date"
+          id="deliveryDate"
+        >
+
+      </div>
+
+      <div class="form-group">
+
+        <label>
+          ملاحظات إضافية
+        </label>
+
+        <textarea id="notes"></textarea>
+
+      </div>
+
+      <button
+        type="submit"
+        class="submit-btn"
+      >
+        إرسال الطلب
+      </button>
+
+    </form>
+
+  </section>
+
+
+
+  <!-- Popup -->
+
+  <div id="popup" class="popup">
+
+    <div class="popup-content">
+
+      <h3>
+        تم إرسال الطلب ✅
+      </h3>
+
+      <p id="orderText"></p>
+
+      <button id="copyBtn">
+        📋 نسخ رقم الطلب
+      </button>
+
+      <button onclick="closePopup()">
+        إغلاق
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Firebase -->
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase.js"></script>
+
+  <script src="js/cake-details.js"></script>
+
+</body>
+</html>
