@@ -146,7 +146,7 @@ function loadCakes() {
             </div>
 
             <a
-href="cake-details.html?id=${doc.id}"
+href="cake-order.html?id=${id}"
 class="order-btn"
             >
               اطلب الآن
