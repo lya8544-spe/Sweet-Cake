@@ -289,3 +289,124 @@ a{
   border-radius:8px;
   cursor:pointer;
 }
+
+
+
+body{
+  margin:0;
+  font-family:Arial;
+  background:#fff5f8;
+}
+
+.navbar{
+  background:#ff4f81;
+  color:#fff;
+  padding:15px 30px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.navbar a{
+  color:#fff;
+  text-decoration:none;
+  margin-right:15px;
+}
+
+.admin-section{
+  padding:30px;
+}
+
+.admin-box{
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  margin-bottom:40px;
+  box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.cake-form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.cake-form input,
+.cake-form textarea,
+.cake-form select{
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+.cake-form button{
+  background:#ff4f81;
+  color:#fff;
+  border:none;
+  padding:14px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.orders-container,
+.cakes-admin-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+}
+
+.order-card,
+.cake-admin-card{
+  background:#fff;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 5px 10px rgba(0,0,0,.1);
+}
+
+.cake-admin-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+.cake-buttons{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+
+.edit-btn{
+  background:#ffaa00;
+  color:#fff;
+  border:none;
+  padding:10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.delete-btn{
+  background:red;
+  color:#fff;
+  border:none;
+  padding:10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.update-btn{
+  background:#ff4f81;
+  color:#fff;
+  border:none;
+  padding:10px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.status-select{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+}
