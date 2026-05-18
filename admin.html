@@ -123,6 +123,33 @@
 
     </div>
 
+
+    <div class="ordered-cake-info">
+
+  <img
+    src="${order.cakeImage}"
+    class="ordered-cake-img"
+  >
+
+  <div>
+
+    <h3>
+      🍰 ${order.cakeName || order.cakeType}
+    </h3>
+
+    <p>
+      💰 السعر:
+      ${order.cakePrice || "-"} $
+    </p>
+
+    <p>
+      📂 التصنيف:
+      ${order.cakeCategory || "-"}
+    </p>
+
+  </div>
+
+</div>
   </section>
 
   <!-- حماية الأدمن -->
