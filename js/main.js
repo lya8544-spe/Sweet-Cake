@@ -97,3 +97,83 @@ window.addEventListener("load", () => {
   }
 
 });
+
+
+
+// =======================
+// LOAD CAKES HOME
+// =======================
+
+const cakesList = document.getElementById("cakesList");
+
+if (cakesList) {
+
+  db.collection("cakes")
+    .orderBy("createdAt", "desc")
+    .onSnapshot(snapshot => {
+
+      cakesList.innerHTML = "";
+
+      snapshot.forEach(doc => {
+
+        const cake = doc.data();
+
+        const card = document.createElement("div");
+
+        card.classList.add("cake-card");
+
+        card.innerHTML = `
+
+          <img src="${cake.image}" class="cake-img">
+
+          <h3>${cake.name}</h3>
+
+          <p>${cake.description}</p>
+
+          <h4>💰 ${cake.price}</h4>
+
+          <button class="order-now-btn">
+            اطلب الآن
+          </button>
+
+        `;
+
+        // ORDER NOW
+        card.querySelector(".order-now-btn")
+          .addEventListener("click", async () => {
+
+            const orderId =
+              "CK" + Math.floor(Math.random() * 100000);
+
+            await db.collection("orders").add({
+
+              orderId: orderId,
+              customerName: "طلب سريع",
+              phone: "غير محدد",
+              address: "",
+              cakeType: cake.name,
+              size: "",
+              shape: "",
+              flavor: "",
+              creamColor: "",
+              layers: "",
+              candles: "",
+              cakeMessage: "",
+              deliveryDate: "",
+              notes: "",
+              status: "Pending",
+              createdAt: Date.now()
+
+            });
+
+            alert("✅ تم إرسال الطلب");
+
+          });
+
+        cakesList.appendChild(card);
+
+      });
+
+    });
+
+}
