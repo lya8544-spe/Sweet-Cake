@@ -1,7 +1,8 @@
-
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ===== Animation Cards =====
+  // =========================
+  // ANIMATION CARDS
+  // =========================
   const cards = document.querySelectorAll(".cake-card");
 
   cards.forEach((card, index) => {
@@ -15,96 +16,89 @@ document.addEventListener("DOMContentLoaded", () => {
       card.style.opacity = "1";
       card.style.transform = "translateY(0)";
 
-    }, index * 200);
+    }, index * 150);
 
   });
 
-  // ===== Modal =====
-const modal = document.getElementById("welcomeModal");
-const closeBtn = document.getElementById("closeModal");
+  // =========================
+  // WELCOME MODAL (every 10 min)
+  // =========================
+  const modal = document.getElementById("welcomeModal");
+  const closeBtn = document.getElementById("closeModal");
 
-// الوقت بالدقائق (10 دقائق)
-const SHOW_INTERVAL = 10 * 60 * 1000;
+  const SHOW_INTERVAL = 10 * 60 * 1000;
+  const lastShown = localStorage.getItem("welcomeModalLastShown");
+  const now = Date.now();
 
-// آخر وقت ظهر فيه المودال
-const lastShown = localStorage.getItem("welcomeModalLastShown");
+  if (modal && (!lastShown || now - lastShown > SHOW_INTERVAL)) {
 
-// الوقت الحالي
-const now = Date.now();
+    setTimeout(() => {
+      modal.style.display = "flex";
+      localStorage.setItem("welcomeModalLastShown", now);
+    }, 1500);
 
-// إذا ما ظهر قبل أو مرّت 10 دقائق
-if (!lastShown || now - lastShown > SHOW_INTERVAL) {
-  if (modal) {
-    modal.style.display = "flex";
-
-    // حفظ وقت الظهور
-    localStorage.setItem("welcomeModalLastShown", now);
   }
-}
 
-// زر الإغلاق
-if (closeBtn) {
-  closeBtn.onclick = () => {
-    modal.style.display = "none";
-  };
-}
+  if (closeBtn && modal) {
+    closeBtn.onclick = () => {
+      modal.style.display = "none";
+    };
 
-// إغلاق عند الضغط خارج المودال
-window.onclick = (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
   }
-};
 
 });
 
 
+// =========================
+// ADMIN LOGIN SYSTEM
+// =========================
 
-
-const adminPassword = "MamaAndJenanAndRetajAndBesanHalaika11";
+const adminPassword = "1234";
 
 const loginModal = document.getElementById("adminLogin");
 const loginBtn = document.getElementById("loginBtn");
-const adminLink = document.getElementById("adminLink");
 const loginError = document.getElementById("loginError");
 
 function showAdminLogin() {
-  loginModal.style.display = "flex";
+  if (loginModal) loginModal.style.display = "flex";
 }
 
-loginBtn.addEventListener("click", () => {
-
-  const input = document.getElementById("adminPassword").value;
-
- if (input === adminPassword) {
-
-  loginModal.style.display = "none";
-
-  localStorage.setItem("isAdmin", "true");
-
-  window.location.href = "admin.html"; // 👈 هذا الحل
-
-} else {
-  loginError.innerText = "❌ كلمة المرور خطأ";
+function closeAdminModal() {
+  if (loginModal) loginModal.style.display = "none";
 }
 
-});
+// login
+if (loginBtn) {
 
-window.addEventListener("load", () => {
+  loginBtn.addEventListener("click", () => {
 
-  if (localStorage.getItem("isAdmin") === "true") {
-    adminLink.style.display = "inline-block";
-  }
+    const input = document.getElementById("adminPassword").value;
 
-});
+    if (input === adminPassword) {
+
+      localStorage.setItem("isAdmin", "true");
+      window.location.href = "admin.html";
+
+    } else {
+
+      loginError.innerText = "❌ كلمة المرور خاطئة";
+    }
+
+  });
+
+}
 
 
-// ===============================
+// =========================
 // CAKES LOADING
-// ===============================
+// =========================
 
-const cakesList =
-  document.getElementById("cakesList");
+const cakesList = document.getElementById("cakesList");
 
 function loadCakes() {
 
@@ -117,44 +111,37 @@ function loadCakes() {
       snapshot.forEach(doc => {
 
         const cake = doc.data();
+        const id = doc.id;
 
-        const card =
-          document.createElement("div");
-
+        const card = document.createElement("div");
         card.classList.add("cake-card");
 
         card.innerHTML = `
-
           <img src="${cake.image}" />
 
           <div class="cake-info">
 
             <h3>${cake.name}</h3>
-
             <p>${cake.description}</p>
 
             <div class="cake-bottom">
-
-              <span class="price">
-                💰 ${cake.price} $
-              </span>
-
-              <span class="category">
-                ${cake.category}
-              </span>
-
+              <span class="price">💰 ${cake.price} $</span>
+              <span class="category">${cake.category}</span>
             </div>
 
-            <a
-href="cake-order.html?id=${id}"
-class="order-btn"
-            >
+            <button class="order-btn">
               اطلب الآن
-            </a>
+            </button>
 
           </div>
-
         `;
+
+        // =========================
+        // فتح صفحة الطلب
+        // =========================
+        card.querySelector(".order-btn").addEventListener("click", () => {
+          window.location.href = `cake-order.html?id=${id}`;
+        });
 
         cakesList.appendChild(card);
 
@@ -165,88 +152,8 @@ class="order-btn"
 }
 
 
-
-// ===============================
-// ADMIN LOGIN
-// ===============================
-
-function showAdminLogin() {
-
-  document.getElementById(
-    "adminLogin"
-  ).style.display = "flex";
-
-}
-
-function closeAdminModal() {
-
-  document.getElementById(
-    "adminLogin"
-  ).style.display = "none";
-
-}
-
-document.getElementById("loginBtn")
-  .addEventListener("click", () => {
-
-    const password =
-      document.getElementById(
-        "adminPassword"
-      ).value;
-
-    if (password === "1234") {
-
-      localStorage.setItem(
-        "isAdmin",
-        "true"
-      );
-
-      window.location.href =
-        "admin.html";
-
-    } else {
-
-      document.getElementById(
-        "loginError"
-      ).innerText =
-        "❌ كلمة المرور خاطئة";
-
-    }
-
-  });
-
-
-
-// ===============================
-// WELCOME MODAL
-// ===============================
-
-const welcomeModal =
-  document.getElementById("welcomeModal");
-
-const closeModal =
-  document.getElementById("closeModal");
-
-window.onload = () => {
-
-  setTimeout(() => {
-
-    welcomeModal.style.display = "flex";
-
-  }, 1500);
-
-};
-
-closeModal.onclick = () => {
-
-  welcomeModal.style.display = "none";
-
-};
-
-
-
-// ===============================
+// =========================
 // START
-// ===============================
+// =========================
 
 loadCakes();
