@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#ff4f81">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>لوحة الأدمن</title>
 
-  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin.css" />
 </head>
+
 <body>
 
   <!-- Navbar -->
   <header class="navbar">
 
     <div class="logo">
-      🍰 Admin Dashboard
+      🍰 لوحة الأدمن
     </div>
 
     <nav>
@@ -26,72 +26,126 @@
 
   </header>
 
-  <!-- Admin Section -->
+  <!-- Admin -->
   <section class="admin-section">
 
-    <h1>إدارة الطلبات 🎂</h1>
+    <!-- ========================= -->
+    <!-- إضافة كيكة -->
+    <!-- ========================= -->
 
+    <div class="admin-box">
 
-    <hr style="margin:40px 0;">
+      <h2>إضافة كيكة جديدة 🍰</h2>
 
-<h2>إضافة كيكة جديدة 🍰</h2>
+      <form id="cakeForm" class="cake-form">
 
-<form id="cakeForm" class="cake-form">
+        <input
+          type="text"
+          id="cakeName"
+          placeholder="اسم الكيكة"
+          required
+        />
 
-<input type="file" id="cakeImage" accept="image/*" required>
-  <input type="text" id="cakePrice" placeholder="السعر" required>
+        <input
+          type="number"
+          id="cakePrice"
+          placeholder="السعر"
+          required
+        />
 
-  <input type="text" id="cakeImage" placeholder="رابط الصورة" required>
+        <input
+          type="file"
+          id="cakeImage"
+          accept="image/*"
+          required
+        />
 
-  <textarea id="cakeDescription" placeholder="وصف الكيكة"></textarea>
+        <textarea
+          id="cakeDescription"
+          placeholder="وصف الكيكة"
+        ></textarea>
 
-  <select id="cakeCategory">
-    <option>Chocolate</option>
-    <option>Vanilla</option>
-    <option>Birthday</option>
-    <option>Wedding</option>
-  </select>
+        <select id="cakeCategory">
 
-  <button type="submit">
-    إضافة الكيكة
-  </button>
+          <option value="Chocolate">
+            Chocolate
+          </option>
 
-</form>
+          <option value="Vanilla">
+            Vanilla
+          </option>
 
-<hr style="margin:40px 0;">
+          <option value="Birthday">
+            Birthday
+          </option>
 
-<h2>الكيكات المضافة 🎂</h2>
+          <option value="Wedding">
+            Wedding
+          </option>
 
-<div id="cakesContainer" class="cakes-admin-container"></div>
+        </select>
 
+        <button type="submit">
+          إضافة الكيكة
+        </button>
 
-    
-    <!-- Orders Container -->
-    <div id="ordersContainer" class="orders-container">
+      </form>
 
-      <!-- الطلبات تظهر هنا -->
+    </div>
 
-      <!-- مثال Card -->
+    <!-- ========================= -->
+    <!-- الكيكات -->
+    <!-- ========================= -->
 
-    
+    <div class="admin-box">
 
-      </div>
+      <h2>الكيكات المضافة 🎂</h2>
+
+      <div
+        id="cakesContainer"
+        class="cakes-admin-container"
+      ></div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- الطلبات -->
+    <!-- ========================= -->
+
+    <div class="admin-box">
+
+      <h2>الطلبات 🧾</h2>
+
+      <div
+        id="ordersContainer"
+        class="orders-container"
+      ></div>
 
     </div>
 
   </section>
+
+  <!-- حماية الأدمن -->
   <script>
-if (localStorage.getItem("isAdmin") !== "true") {
-  alert("❌ غير مسموح بالدخول");
-  window.location.href = "index.html";
-}
-</script>
 
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    if (localStorage.getItem("isAdmin") !== "true") {
 
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+      alert("❌ غير مسموح بالدخول");
 
-<script src="js/firebase.js"></script>
+      window.location.href = "index.html";
+
+    }
+
+  </script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase.js"></script>
+
+  <!-- Admin JS -->
   <script src="js/admin.js"></script>
 
 </body>
