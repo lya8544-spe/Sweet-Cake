@@ -31,6 +31,42 @@
 
     <h1>إدارة الطلبات 🎂</h1>
 
+
+    <hr style="margin:40px 0;">
+
+<h2>إضافة كيكة جديدة 🍰</h2>
+
+<form id="cakeForm" class="cake-form">
+
+  <input type="text" id="cakeName" placeholder="اسم الكيكة" required>
+
+  <input type="text" id="cakePrice" placeholder="السعر" required>
+
+  <input type="text" id="cakeImage" placeholder="رابط الصورة" required>
+
+  <textarea id="cakeDescription" placeholder="وصف الكيكة"></textarea>
+
+  <select id="cakeCategory">
+    <option>Chocolate</option>
+    <option>Vanilla</option>
+    <option>Birthday</option>
+    <option>Wedding</option>
+  </select>
+
+  <button type="submit">
+    إضافة الكيكة
+  </button>
+
+</form>
+
+<hr style="margin:40px 0;">
+
+<h2>الكيكات المضافة 🎂</h2>
+
+<div id="cakesContainer" class="cakes-admin-container"></div>
+
+
+    
     <!-- Orders Container -->
     <div id="ordersContainer" class="orders-container">
 
