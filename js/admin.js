@@ -102,50 +102,15 @@ function loadOrders() {
 // ADD CAKE
 // ==========================
 
-const cakeForm = document.getElementById("cakeForm");
-const cakesContainer = document.getElementById("cakesContainer");
 
-if (cakeForm) {
-
-  cakeForm.addEventListener("submit", async (e) => {
-
-    e.preventDefault();
-
-    const cakeData = {
-
-      name: document.getElementById("cakeName").value,
-      price: document.getElementById("cakePrice").value,
-      image: document.getElementById("cakeImage").value,
-      description: document.getElementById("cakeDescription").value,
-      category: document.getElementById("cakeCategory").value,
-      createdAt: Date.now()
-
-    };
-
-    try {
-
-      await db.collection("cakes").add(cakeData);
-
-      alert("✅ تم إضافة الكيكة");
-
-      cakeForm.reset();
-
-    } catch (error) {
-
-      console.error(error);
-
-      alert("❌ حدث خطأ");
-
-    }
-
-  });
-
-}
 
 // ==========================
 // LOAD CAKES
 // ==========================
 
+
+const cakesContainer =
+  document.getElementById("cakesContainer");
 function loadCakes() {
 
   if (!cakesContainer) return;
