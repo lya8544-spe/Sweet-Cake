@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>طلب الكيكة</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+      direction: rtl;
+    }
+
+    #cakeInfo img {
+      width: 200px;
+      border-radius: 10px;
+    }
+
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 300px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 10px;
+      cursor: pointer;
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+
+    #orderCodeBox {
+      margin-top: 20px;
+      padding: 10px;
+      background: #eee;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>تفاصيل الكيكة</h2>
+  <div id="cakeInfo"></div>
+
+  <hr>
+
+  <h3>بيانات الطلب</h3>
+
+  <form id="orderForm">
+
+    <input id="name" placeholder="الاسم" required />
+    <input id="phone" placeholder="رقم الهاتف" required />
+    <input id="address" placeholder="العنوان" required />
+
+    <textarea id="notes" placeholder="ملاحظات"></textarea>
+
+    <button type="submit">إرسال الطلب</button>
+
+  </form>
+
+  <h3>كود الطلب:</h3>
+  <div id="orderCodeBox">لم يتم إنشاء كود بعد</div>
+  <br>
+  <button id="copyCode">نسخ الكود</button>
+
+  <!-- Firebase + JS -->
+  <script src="order1.js"></script>
+
+</body>
+</html>
