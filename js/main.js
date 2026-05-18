@@ -99,14 +99,14 @@ window.addEventListener("load", () => {
 });
 
 
+// ===============================
+// CAKES LOADING
+// ===============================
 
-// =======================
-// LOAD CAKES HOME
-// =======================
+const cakesList =
+  document.getElementById("cakesList");
 
-const cakesList = document.getElementById("cakesList");
-
-if (cakesList) {
+function loadCakes() {
 
   db.collection("cakes")
     .orderBy("createdAt", "desc")
@@ -118,57 +118,43 @@ if (cakesList) {
 
         const cake = doc.data();
 
-        const card = document.createElement("div");
+        const card =
+          document.createElement("div");
 
         card.classList.add("cake-card");
 
         card.innerHTML = `
 
-          <img src="${cake.image}" class="cake-img">
+          <img src="${cake.image}" />
 
-          <h3>${cake.name}</h3>
+          <div class="cake-info">
 
-          <p>${cake.description}</p>
+            <h3>${cake.name}</h3>
 
-          <h4>💰 ${cake.price}</h4>
+            <p>${cake.description}</p>
 
-          <button class="order-now-btn">
-            اطلب الآن
-          </button>
+            <div class="cake-bottom">
+
+              <span class="price">
+                💰 ${cake.price} $
+              </span>
+
+              <span class="category">
+                ${cake.category}
+              </span>
+
+            </div>
+
+            <a
+              href="order.html"
+              class="order-btn"
+            >
+              اطلب الآن
+            </a>
+
+          </div>
 
         `;
-
-        // ORDER NOW
-        card.querySelector(".order-now-btn")
-          .addEventListener("click", async () => {
-
-            const orderId =
-              "CK" + Math.floor(Math.random() * 100000);
-
-            await db.collection("orders").add({
-
-              orderId: orderId,
-              customerName: "طلب سريع",
-              phone: "غير محدد",
-              address: "",
-              cakeType: cake.name,
-              size: "",
-              shape: "",
-              flavor: "",
-              creamColor: "",
-              layers: "",
-              candles: "",
-              cakeMessage: "",
-              deliveryDate: "",
-              notes: "",
-              status: "Pending",
-              createdAt: Date.now()
-
-            });
-
-            alert("✅ تم إرسال الطلب");
-
-          });
 
         cakesList.appendChild(card);
 
@@ -177,3 +163,90 @@ if (cakesList) {
     });
 
 }
+
+
+
+// ===============================
+// ADMIN LOGIN
+// ===============================
+
+function showAdminLogin() {
+
+  document.getElementById(
+    "adminLogin"
+  ).style.display = "flex";
+
+}
+
+function closeAdminModal() {
+
+  document.getElementById(
+    "adminLogin"
+  ).style.display = "none";
+
+}
+
+document.getElementById("loginBtn")
+  .addEventListener("click", () => {
+
+    const password =
+      document.getElementById(
+        "adminPassword"
+      ).value;
+
+    if (password === "1234") {
+
+      localStorage.setItem(
+        "isAdmin",
+        "true"
+      );
+
+      window.location.href =
+        "admin.html";
+
+    } else {
+
+      document.getElementById(
+        "loginError"
+      ).innerText =
+        "❌ كلمة المرور خاطئة";
+
+    }
+
+  });
+
+
+
+// ===============================
+// WELCOME MODAL
+// ===============================
+
+const welcomeModal =
+  document.getElementById("welcomeModal");
+
+const closeModal =
+  document.getElementById("closeModal");
+
+window.onload = () => {
+
+  setTimeout(() => {
+
+    welcomeModal.style.display = "flex";
+
+  }, 1500);
+
+};
+
+closeModal.onclick = () => {
+
+  welcomeModal.style.display = "none";
+
+};
+
+
+
+// ===============================
+// START
+// ===============================
+
+loadCakes();
