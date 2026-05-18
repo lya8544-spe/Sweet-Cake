@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>طلب الكيكة</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="logo">🍰 طلب الكيكة</div>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+    </nav>
+  </header>
+
+  <section class="admin-section">
+
+    <!-- تفاصيل الكيكة -->
+    <div class="admin-box" id="cakeDetails">
+      <h2>تحميل...</h2>
+    </div>
+
+    <!-- فورم الطلب -->
+    <div class="admin-box">
+
+      <h2>إكمال الطلب 🧾</h2>
+
+      <input type="text" id="name" placeholder="الاسم" required>
+      <input type="text" id="phone" placeholder="رقم الهاتف" required>
+      <textarea id="notes" placeholder="ملاحظات إضافية"></textarea>
+
+      <button onclick="sendOrder()">إرسال الطلب</button>
+
+      <p id="orderCodeBox"></p>
+      <button id="copyBtn" style="display:none;">نسخ كود الطلب</button>
+
+    </div>
+
+  </section>
+
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase.js"></script>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const cakeId = urlParams.get("id");
+
+    const cakeDetails = document.getElementById("cakeDetails");
+
+    let cakeData = null;
+
+    // تحميل بيانات الكيكة
+    db.collection("cakes").doc(cakeId).get().then(doc => {
+      cakeData = doc.data();
+
+      cakeDetails.innerHTML = `
+        <img src="${cakeData.image}" style="width:100%;border-radius:10px;">
+        <h2>${cakeData.name}</h2>
+        <p>${cakeData.description}</p>
+        <h3>💰 ${cakeData.price} $</h3>
+      `;
+    });
+
+
+    // إرسال الطلب
+    async function sendOrder() {
+
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const notes = document.getElementById("notes").value;
+
+      if (!name || !phone) {
+        alert("أدخل البيانات المطلوبة");
+        return;
+      }
+
+      const orderId = "ORD-" + Math.floor(Math.random() * 1000000);
+
+      const orderData = {
+        orderId,
+        cakeType: cakeData.name,
+        cakeId: cakeId,
+        customerName: name,
+        phone: phone,
+        notes: notes,
+        status: "Pending",
+        createdAt: Date.now()
+      };
+
+      await db.collection("orders").add(orderData);
+
+      document.getElementById("orderCodeBox").innerText =
+        "رمز الطلب: " + orderId;
+
+      const copyBtn = document.getElementById("copyBtn");
+      copyBtn.style.display = "block";
+
+      copyBtn.onclick = () => {
+        navigator.clipboard.writeText(orderId);
+        alert("تم نسخ الكود");
+      };
+
+      alert("تم إرسال الطلب بنجاح");
+    }
+
+  </script>
+
+</body>
+</html>
