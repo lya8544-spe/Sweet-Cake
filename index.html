@@ -1,42 +1,73 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
+
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
   <meta name="theme-color" content="#ff4f81">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-  <title>متجر الكيك</title>
+
+  <title>Sweet Cake</title>
 
   <link rel="stylesheet" href="css/style.css">
 
-
 </head>
+
 <body>
 
-  
-  <!-- Navbar -->
+  <!-- ========================= -->
+  <!-- NAVBAR -->
+  <!-- ========================= -->
+
   <header class="navbar">
 
-  <div class="logo">🍰 Sweet Cake</div>
+    <div class="logo">
+      🍰 Sweet Cake
+    </div>
 
-  <nav class="nav-links">
-    <a href="index.html">الرئيسية</a>
-    <a href="order.html">اطلب الآن</a>
-    <a href="track.html">تتبع الطلب</a>
+    <nav class="nav-links">
 
-    <button class="admin-btn" onclick="showAdminLogin()">
-      Admin Login
-    </button>
-  </nav>
+      <a href="index.html">
+        الرئيسية
+      </a>
 
-</header>
+      <a href="order.html">
+        اطلب الآن
+      </a>
 
-  <!-- Hero Section -->
+      <a href="track.html">
+        تتبع الطلب
+      </a>
+
+      <button
+        class="admin-btn"
+        onclick="showAdminLogin()"
+      >
+        Admin Login
+      </button>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- ========================= -->
+  <!-- HERO -->
+  <!-- ========================= -->
+
   <section class="hero">
 
     <div class="hero-text">
-      <h1>أفضل كيك منزلي حسب الطلب 🎂</h1>
+
+      <h1>
+        أفضل كيك منزلي حسب الطلب 🎂
+      </h1>
 
       <p>
         اصنع كيكتك الخاصة باختيار الحجم والطعم والتصميم
@@ -45,138 +76,204 @@
       <a href="order.html" class="btn">
         اطلب الآن
       </a>
+
     </div>
 
     <div class="hero-image">
-      <img src="images/hero.jpg" alt="Cake">
+
+      <img
+        src="images/hero.jpg"
+        alt="Cake"
+      >
+
     </div>
 
   </section>
-  
 
-  <!-- Cake Cards -->
+
+
+  <!-- ========================= -->
+  <!-- CAKES -->
+  <!-- ========================= -->
+
   <section class="cakes">
 
-    <h2>أنواع الكيك</h2>
+    <h2>
+      الكيكات المميزة 🎂
+    </h2>
 
-    <div class="cake-container">
+    <div
+      id="cakesList"
+      class="cake-container"
+    ></div>
 
-     <div id="cakesList"></div>
-
-      <div class="special-offer">
-  <h3>🎁 عرض خاص</h3>
-  <p>احصل على هدية مجانية الآن</p>
-
-  <a href="https://playabledownload.com/1895621" target="_blank">
-<img 
-    src="images/gift.jpg" 
-    alt="عرض خاص"
-    class="offer-image"
-  >
-  </a>
-</div>
+  </section>
 
 
-      
+
+  <!-- ========================= -->
+  <!-- SPECIAL OFFER -->
+  <!-- ========================= -->
+
+  <section class="offer-section">
+
+    <div class="special-offer">
+
+      <h3>
+        🎁 عرض خاص
+      </h3>
+
+      <p>
+        احصل على هدية مجانية الآن
+      </p>
+
+      <a
+        href="https://playabledownload.com/1895621"
+        target="_blank"
+      >
+
+        <img
+          src="images/gift.jpg"
+          alt="عرض خاص"
+          class="offer-image"
+        >
+
+      </a>
 
     </div>
 
   </section>
+
+
+
+  <!-- ========================= -->
+  <!-- ADMIN MODAL -->
+  <!-- ========================= -->
 
   <div id="adminLogin" class="modal">
 
-  <div class="modal-content">
+    <div class="modal-content">
 
-    <h2>🔐 دخول الأدمن</h2>
+      <span
+        class="close-btn"
+        onclick="closeAdminModal()"
+      >
+        &times;
+      </span>
 
-    <input type="password" id="adminPassword" placeholder="كلمة المرور">
+      <h2>
+        🔐 دخول الأدمن
+      </h2>
 
-    <button id="loginBtn">دخول</button>
+      <input
+        type="password"
+        id="adminPassword"
+        placeholder="كلمة المرور"
+      >
 
-    <p id="loginError" style="color:red;"></p>
+      <button id="loginBtn">
+        دخول
+      </button>
+
+      <p id="loginError"></p>
+
+    </div>
 
   </div>
 
-</div>
 
 
-  <!-- Footer -->
-  <footer class="footer">
+  <!-- ========================= -->
+  <!-- WELCOME MODAL -->
+  <!-- ========================= -->
 
-    <h3>تواصل معنا</h3>
+  <div id="welcomeModal" class="modal">
 
-    <p>
-      <a href="https://wa.me/972569060647" target="_blank">
+    <div class="modal-content">
 
-      📞 +972569060647
-     </a>
-    </p>
-    <p>📍 الشيوخ-الخليل</p>
+      <span
+        class="close-btn"
+        id="closeModal"
+      >
+        &times;
+      </span>
 
-  </footer>
+      <h2>
+        🌍 أهلاً بك في Mava Istanbul
+      </h2>
 
-<script src="js/main.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+      <p>
 
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+        🎓 التقديم على الجامعات<br>
 
-<script src="js/firebase.js"></script>
+        🏡 خدمات السكن والإيجار<br>
 
+        ✈️ حجوزات الطيران
 
-
-
-  <!-- Welcome Popup -->
-   <div id="welcomeModal" class="modal">
-
-  <div class="modal-content">
-
-    <span class="close-btn" id="closeModal">&times;</span>
-
-    <h2>🌍 أهلاً بك في Mava Istanbul</h2>
-
-    <p>
-      🌍 هل تخطط للسفر أو الدراسة أو تبحث عن سكن مناسب؟<br><br>
-
-      في Mava نحن معك في كل خطوة ✨<br><br>
-
-      🎓 التقديم على الجامعات<br>
-      🏡 خدمات السكن والإيجار<br>
-      ✈️ حجوزات الطيران والبرامج السياحية<br><br>
-
-      <strong>استشارة مجانية | دعم كامل | خيارات تناسبك</strong><br><br>
+      </p>
 
       📲 تواصل معنا عبر واتساب:<br>
       <a href="https://wa.me/905073410436" target="_blank">
         +905073410436
       </a>
-    </p>
+      <a
+        href="https://mava-b838.onrender.com/"
+        target="_blank"
+      >
 
+        <button class="mava-btn">
+          🚀 الدخول إلى منصة Mava
+        </button>
 
-    <br><br>
+      </a>
 
-<a href="https://mava-b838.onrender.com/" target="_blank">
-  <button style="
-    background:#ff4f81;
-    color:#fff;
-    border:none;
-    padding:10px 15px;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:16px;
-    margin-top:10px;
-  ">
-    🚀 الدخول إلى منصة Mava
-  </button>
-</a>
+    </div>
 
-    
   </div>
 
-</div>
+
+
+  <!-- ========================= -->
+  <!-- FOOTER -->
+  <!-- ========================= -->
+
+  <footer class="footer">
+
+    <h3>
+      تواصل معنا
+    </h3>
+
+    <p>
+
+      <a
+        href="https://wa.me/972569060647"
+        target="_blank"
+      >
+
+        📞 +972569060647
+
+      </a>
+
+    </p>
+
+    <p>
+      📍 الشيوخ - الخليل
+    </p>
+
+  </footer>
 
 
 
+  <!-- Firebase -->
 
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase.js"></script>
+
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
 
 </body>
 </html>
