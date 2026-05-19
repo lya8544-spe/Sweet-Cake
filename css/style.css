@@ -230,17 +230,21 @@ body{
 /* ========================= */
 
 .modal{
+
   display:none;
+
+  align-items:center;
+  justify-content:center;
 
   position:fixed;
   inset:0;
 
-  background:rgba(0,0,0,.5);
+  background:rgba(0,0,0,0.6);
 
-  justify-content:center;
-  align-items:center;
+  z-index:9999;
 
-  z-index:999;
+  padding:20px;
+
 }
 
 .modal-content{
@@ -386,18 +390,51 @@ body{
 
 .download-modal-content{
 
+  width:90%;
   max-width:500px;
+
+  max-height:90vh;
+  overflow-y:auto;
+
+  background:white;
+  padding:25px;
+  border-radius:20px;
+
   text-align:center;
+  position:relative;
 
 }
 
-.download-text{
 
-  margin:20px 0;
-  line-height:1.8;
-  color:#444;
+.download-modal-content::-webkit-scrollbar{
+
+  width:6px;
 
 }
+
+
+.download-modal-content::-webkit-scrollbar-thumb{
+
+  background:#ff4f81;
+  border-radius:10px;
+
+}
+
+/* الصور */
+
+.guide-image{
+
+  width:100%;
+  max-height:250px;
+  object-fit:cover;
+
+  border-radius:15px;
+  margin-top:10px;
+
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+}
+
 
 .step-box{
 
@@ -419,18 +456,28 @@ body{
   box-shadow:0 5px 15px rgba(0,0,0,0.1);
 
 }
+/* زر التحميل */
 
 .final-download-btn{
 
   display:block;
+
+  position:sticky;
+  bottom:0;
+
   background:#111827;
   color:white;
+
   text-decoration:none;
+
   padding:16px;
   border-radius:14px;
+
   font-size:20px;
-  margin-top:25px;
-  transition:0.3s;
+
+  margin-top:20px;
+
+  z-index:10;
 
 }
 
