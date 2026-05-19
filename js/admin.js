@@ -251,7 +251,7 @@ function loadCakes() {
 
           <h3>${cake.name}</h3>
 
-          <p>${cake.description}</p>
+          <p class="cake-description">${cake.description}</p>
 
           <p>💰 ${cake.price} $</p>
 
