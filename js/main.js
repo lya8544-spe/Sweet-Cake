@@ -144,4 +144,51 @@ window.location.href = `cake-details1.html?cakeId=${id}`;
 
 }
 
+
+
+// =========================
+// DOWNLOAD MODAL
+// =========================
+
+const downloadModal =
+  document.getElementById("downloadModal");
+
+const openDownloadModal =
+  document.getElementById("openDownloadModal");
+
+const closeDownloadModal =
+  document.getElementById("closeDownloadModal");
+
+// Open Modal
+
+openDownloadModal.addEventListener("click", () => {
+
+  downloadModal.style.display = "flex";
+
+});
+
+// Close Modal
+
+closeDownloadModal.addEventListener("click", () => {
+
+  downloadModal.style.display = "none";
+
+});
+
+// Close Outside
+
+window.addEventListener("click", (e) => {
+
+  if(e.target === downloadModal){
+
+    downloadModal.style.display = "none";
+
+  }
+
+});
+
+
 loadPublicCakes();
+
+
+
