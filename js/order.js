@@ -20,7 +20,7 @@ orderForm.addEventListener("submit", async (e) => {
     cakeMessage: document.getElementById("cakeMessage").value,
     deliveryDate: document.getElementById("deliveryDate").value,
     notes: document.getElementById("notes").value,
-    status: "Pending",
+    status: "قيد الانتظار",
     createdAt: Date.now()
   };
 
