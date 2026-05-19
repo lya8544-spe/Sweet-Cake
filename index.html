@@ -369,6 +369,43 @@
 </div>
   <!-- Firebase -->
 
+<script>
+  // =========================
+// ADMIN MODAL
+// =========================
+
+const adminModal =
+  document.getElementById("adminLogin");
+
+// فتح الموديل
+
+function showAdminLogin(){
+
+  adminModal.style.display = "flex";
+
+}
+
+// إغلاق الموديل
+
+function closeAdminModal(){
+
+  adminModal.style.display = "none";
+
+}
+
+// إغلاق عند الضغط خارج الموديل
+
+window.addEventListener("click", (e) => {
+
+  if(e.target === adminModal){
+
+    closeAdminModal();
+
+  }
+
+});
+
+  </script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
