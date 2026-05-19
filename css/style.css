@@ -250,8 +250,8 @@ body{
 .modal-content{
   background:#fff;
 
-  padding:30px;
-
+padding: 70px 25px 30px;
+  
   border-radius:20px;
 
   width:90%;
