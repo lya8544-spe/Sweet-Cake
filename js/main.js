@@ -132,7 +132,7 @@ function loadPublicCakes() {
           .addEventListener("click", () => {
 
             // تحويل المستخدم لصفحة الطلب مع ID الكيكة
-window.location.href = `cake-details1.html?cakeId=${id}`;
+window.location.href = `order1.html?cakeId=${id}`;
             
           });
 
